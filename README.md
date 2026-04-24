@@ -1,6 +1,6 @@
 # LoRa Mesh Network with Synchronized Sleep and Adaptive Forwarding
 
-A multi-hop LoRa mesh networking stack for RAK4630 hardware, built around a synchronized deep-sleep duty cycle. Nodes spend most of their time asleep and wake together on a shared schedule, so battery life is measured in months rather than days. Forwarding decisions are made locally using RSSI-weighted jitter and an optional load-aware backpressure mechanism -- no routing tables, no always-on relays.
+A multi-hop LoRa mesh networking stack for RAK4630 hardware, built around a synchronized deep-sleep duty cycle. Nodes spend most of their time asleep and wake together on a shared schedule, so battery life is measured in months rather than days. Forwarding decisions are made locally using RSSI-weighted jitter and an optional load-aware backpressure mechanism with NO routing tables, no always-on relays.
 
 Developed as a directed study project at Northeastern University, Spring 2026.
 
@@ -9,7 +9,7 @@ Developed as a directed study project at Northeastern University, Spring 2026.
 ## What it does
 
 - Nodes synchronize wake timing around a periodic beacon, then go back to deep sleep
-- Packets are flood-forwarded with duplicate suppression -- whichever relay has the best link wins the jitter race and forwards first
+- Packets are flood-forwarded with duplicate suppression so whichever relay has the best link wins the jitter race and forwards first
 - A neighbor RSSI table tracks link quality and biases forwarding toward stronger paths
 - An optional load-aware jitter extension redistributes traffic away from congested relays
 - Orphan recovery lets a node that loses sync request a beacon retransmit and rejoin automatically
